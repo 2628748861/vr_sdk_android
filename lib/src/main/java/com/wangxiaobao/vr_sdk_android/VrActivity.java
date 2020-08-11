@@ -149,7 +149,7 @@ public abstract class VrActivity extends Activity implements IVrControll
             Toast.makeText(mContext,msg,Toast.LENGTH_SHORT).show();
         }
 
-        //创建房间回调
+        //创建vr房间回调
         @JavascriptInterface
         public void createdRoom(String json){
             try {
