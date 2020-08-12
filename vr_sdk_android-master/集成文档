@@ -32,15 +32,17 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-  2.在defaultConfig中,指定App使用的CPU架构.
+
+
+ 2.在defaultConfig中,指定App使用的CPU架构.
+
     defaultConfig {
         ndk {
         abiFilters "armeabi-v7a"
       }
     }
 
-   3.新建Activity 继承 VrActivity
-
+ 3.新建Activity 继承 VrActivity
 
     public class MyVrActivity extends WxbVrActivity {
         /**
@@ -98,7 +100,7 @@
     }
 
 
-    4.注册AndroidManifest.xml
+ 4.注册AndroidManifest.xml
 
       <application>
         <activity android:name=".MyVrActivity">
@@ -107,7 +109,7 @@
       </aplication>
 
 
-    5.代码混淆
+ 5.代码混淆
 
     #vr配置
     -keep class com.just.agentweb.** {
