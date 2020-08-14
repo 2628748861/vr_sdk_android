@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+            <RelativeLayout
+                    android:id="@+id/nav_layout"
+                    android:background="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageButton
+                         android:id="@+id/backBtn"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@null"
+                         android:src="@drawable/vr_ic_back"/>
+                    <TextView
+                            android:id="@+id/vr_title"
+                            android:layout_centerInParent="true"
+                            android:text="vr标题"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+            </RelativeLayout>
+<!--            <SeekBar android:id="@+id/progress" android:layout_width="match_parent" android:layout_height="1dp" android:progress="0" android:max="100"/>-->
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/webview_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+</LinearLayout>
