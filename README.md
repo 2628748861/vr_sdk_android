@@ -1,6 +1,9 @@
 # android 对接VR文档
-**一.添加依赖：**
 
+[demo下载地址：https://github.com/2628748861/vr_sdk_android.git](https://github.com/2628748861/vr_sdk_android.git)
+
+
+**一.添加依赖：**
 1.在project的build.gradle中添加jitpack仓库支持
 ```java
 allprojects {
@@ -14,7 +17,7 @@ allprojects {
 2.在module的build.gradle中添加依赖的引用
 ```java
 dependencies {
-    implementation 'com.github.2628748861:vr_sdk_android:1.0.0'
+    implementation 'com.github.2628748861:vr_sdk_android:1.0.1'
   }
 ```
 
@@ -44,7 +47,7 @@ dependencies {
   ```java
   defaultConfig {
         ndk {
-        abiFilters "armeabi-v7a"
+        abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
       }
     }
   ```
@@ -98,6 +101,7 @@ public class MyVrActivity extends WxbVrActivity {
                 Toast.makeText(mContext, "跳转失败,缺少必要参数", Toast.LENGTH_SHORT).show();
                 return;
             }
+            //跳转界面前需要动态申请录音权限
             Intent intent = new Intent(mContext, clasz);
             Bundle bundle = new Bundle();
             bundle.putParcelable("data", vrParams);
@@ -133,3 +137,68 @@ public class MyVrActivity extends WxbVrActivity {
       public static final android.os.Parcelable$Creator *;
     }
  ```
+ 
+ 6.sdk参数说明
+ 
+ voice_appId和voice_secret说明：
+ 
+ 获取需要在腾讯云注册账号 选择[实时音视频服务：https://cloud.tencent.com/product/trtc](https://cloud.tencent.com/product/trtc)，然后在控制台创建应用，在应用信息中获取SDKAppID(项目的voice_appId参数)和密匙Key(项目的voice_secret参数)
+ 
+ 
+ vrAppId和vrToken说明：
+ 
+ appId即是vrAppId
+ 
+ vrToken需要通过appId和secret获取，如下
+
+获取VR全局唯一后台接口调用凭据（token）。调用绝大多数后台接口时都需使用 token，开发者需要进行妥善保存。
+
+请求地址
+
+```
+post https://vrh5.source3g.com/user/auth/check
+```
+method:application/x-www-form-urlencoded
+
+参数说明
+
+参数|是否必填|说明
+---|---|---
+appId|是|项目appId
+appSecret|是|项目appSecret
+
+[如何获取appId与appSecret](../获取appId与appSecret.md)
+
+正确返回数据如下:
+
+```
+{
+    "code": "0",
+    "action": "/auth/check",
+    "msg": "succeeded",
+    "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTU5NDU3NjUsImlhdCI6MTU5NTk0Mzk2NX0.8F_a5ckcV5f8cJxDJnpBg70yaxQ6T0K_lLhyScVnybA",
+    "timestamp": "2020-07-28 21:46:05",
+    "ok": true
+}
+```
+
+参数|描述
+---|---
+code| 0是正常
+data| token内容
+
+错误时返回数据
+
+```
+{
+    "code": "-1",
+    "action": "/auth/check",
+    "msg": "appId错误",
+    "timestamp": "2020-07-28 21:47:44",
+    "ok": false
+}
+```
+
+
+ 
+ 
