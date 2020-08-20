@@ -21,20 +21,20 @@ public class MainActivity extends Activity {
      * VR 语音 appId
      * 如果填写不正确 可能导致不能进行语音通话
      * */
-    int voice_appId = 1400376695;
+    int voice_appId = 0; //你的腾讯实时音视频的appId
 
     /**
      * VR 语音 appSecret
      * 如果填写不正确 可能导致不能进行语音通话
      * */
-    String voice_secret = "35cd88805babafbbee7577f965441566a9b7346bb4ea5754f14d36322b755d4e";
+    String voice_secret = "你的腾讯实时音视频的appSecret";
 
     /**
      * VR token   通过对接接口获取
      * 如果不正确 可能导致不能加载VR界面
      * 通过文档中https://vrh5.source3g.com/user/auth/check 接口获取
      * */
-    String vrToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTczMDg0ODksImlhdCI6MTU5NzMwNjY4OX0.z45hXretx3yExYg-j9eVvgXgsBVqdIqtpkwXu-UuwOU";
+    String vrToken = "你的vrToken";
 
 
     /**
@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
      * 如果不正确 可能导致不能加载VR界面
      * 通过文档中https://vrh5.source3g.com/user/auth/check 接口获取
      * */
-    String vrAppId = "w81ABzcU";
+    String vrAppId = "你的appId";
 
 
     /**
